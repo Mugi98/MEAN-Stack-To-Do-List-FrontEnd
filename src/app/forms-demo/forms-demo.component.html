@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-md-6 text-left bg-white rounded shadow py-3">
+        <form (ngSubmit)="onSubmit(myForm)" #myForm=ngForm>
+            <div ngModelGroup="userDetail" #userDetail="ngModelGroup">
+                <div class="form-group py-2">
+                    <label for="username">UserName</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter UserName"
+                    required [(ngModel)]="userName">
+                    <small *ngIf="userName">Your UserName is: {{userName}}</small>
+                  </div>
+                  <div class="form-group py-2">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" 
+                        required email ngModel #email="ngModel">
+                        <small class="text-danger"
+                        *ngIf="!email.valid && email.touched"
+                        >Please Enter valid Email</small>
+                  </div>
+                    <span class="text-danger"
+                        *ngIf="!userDetail.valid && userDetail.touched"
+                        >
+                        Please Enter valid Details
+                    </span>
+            </div>
+                  <div class="form-group py-2">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" 
+                    required >
+                  </div>
+                <div class="form-group py-2">
+                    <div class="custom-control custom-radio" *ngFor = "let gender of genders">
+                        <input type="radio" id="{{gender.id}}" [ngModel]="defaultGender" name="gender" value="{{gender.value}}" class="custom-control-input">
+                        <label class="custom-control-label" for="{{gender.id}}">{{gender.value}}</label>
+                      </div>
+                </div>
+            
+            <button type="submit" class="btn btn-success"[(disabled)]="!myForm.valid">Submit</button>
+          </form>
+    </div>
+</div>
+<!-- <div class="row justify-content-center mt-2" *ngIf= submitted>
+    <div class="col-md-6 text-left bg-white rounded shadow py-3">
+        <h2>Form Data</h2>
+        <p>UserName: <strong>{{formData.username}}</strong> </p>
+        <p>Email: <strong>{{formData.email}}</strong> </p>
+        <p>Gender: <strong>{{formData.gender}}</strong> </p>
+        
+    </div>
+</div> -->
+
+

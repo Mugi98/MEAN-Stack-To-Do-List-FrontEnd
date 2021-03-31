@@ -1,0 +1,36 @@
+<!-- 
+<form>
+    <div class="form-group mt-3">
+      <label for="exampleFormControlFile1">Select a File to Upload</label>
+      <br>
+      <input (change)="onFileSelect($event)" type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+    <div class="form-group mt-3">
+        <button class="btn btn-primary" (click)="onSubmit()">Submit Image</button>
+    </div>
+    <div class="form-group mt-3">
+        <button class="btn btn-primary" (click)="onShow()">Show Image</button>
+    </div>
+    <div>
+        <img [src]="image" alt="gft ">
+    </div> -->
+<!-- </form> -->
+
+<form>
+    <div class="form-group mt-3">
+      <label for="exampleFormControlFile1">Select a File to Upload</label>
+      <br>
+      <input (change)="selectMutipleimage($event)" multiple type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+    <div class="form-group mt-3">
+        <button class="btn btn-primary" (click)="onMutipleSubmit()">Submit Image</button>
+    </div>
+    <div class="form-group mt-3">
+        <button  
+         class="btn btn-primary" (click)="onShow()">Show Image</button>
+    </div>
+    <div>
+        <img *ngFor="let listImage of image"
+         src="{{listImage.imageUrl}}" alt="">
+    </div>
+</form>

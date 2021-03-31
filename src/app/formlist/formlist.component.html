@@ -1,0 +1,21 @@
+<table class="table ">
+    <thead>
+        <tr>
+            <th scope="col">UserName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let datas of listData.newData">
+            <td>{{datas.username}}</td>
+            <td>{{datas.email}}</td>
+            <td>
+                <button  class="btn btn-success"(click)="onEdit(datas._id)">Edit</button>
+                <span class='px-2'></span>
+                <button  class="btn btn-danger"(click)="onDelete(datas._id)">Delete</button>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
